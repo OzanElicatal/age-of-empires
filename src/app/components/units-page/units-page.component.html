@@ -1,0 +1,43 @@
+<div class="mt-2 ms-5">
+  <h3>Ages</h3>
+  <div>
+    <button type="button" class="btn btn-outline-dark">All</button>
+    <button type="button" class="btn btn-outline-dark">Dark</button>
+    <button type="button" class="btn btn-outline-dark">Feudal</button>
+    <button type="button" class="btn btn-outline-dark">Castle</button>
+    <button type="button" class="btn btn-outline-dark">Imperial</button>
+  </div>
+
+</div>
+
+<table class="table table-light w-75 mt-5 mx-auto">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Costs</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of Data">
+        <th><a class="idText" [routerLink]="['/units/', item.id]">{{item.id}}</a></th>
+        <td>{{item.name}}</td>
+        <td>{{item.age}}</td>
+        <td>
+          <ng-container *ngIf="item.cost.Food  >= 0">
+            Food: {{item.cost.Food}}
+          </ng-container>
+          <ng-container *ngIf="item.cost.Wood  >= 0">
+            Wood: {{item.cost.Wood}}
+          </ng-container>
+          <ng-container *ngIf="item.cost.Gold  >= 0">
+            Gold: {{item.cost.Gold}}
+          </ng-container>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
